@@ -1,0 +1,13 @@
+# GitHub Pages configuration for Tempest Financial Services
+# This file tells GitHub Pages how to serve the site.
+
+# When you're ready to connect a custom domain (e.g. tempestfinancial.co.uk),
+# uncomment and set the line below, then add a CNAME DNS record pointing to
+# BradleyCurtis.github.io at your domain registrar.
+# url: "https://www.tempestfinancial.co.uk"
+
+# Exclude source files from the built site
+exclude:
+  - instructions.md
+  - README.md
+  - "*.sh"
