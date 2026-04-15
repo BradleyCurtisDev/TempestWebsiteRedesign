@@ -565,6 +565,167 @@ ul { list-style: none; }
   line-height: 1.75;
 }
 
+/* --- Services Breakdown ----------------------------------- */
+.services-breakdown {
+  margin-top: 80px;
+  padding-top: 64px;
+  border-top: 1px solid var(--clr-border);
+}
+
+.breakdown-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.breakdown-title {
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-weight: 800;
+  color: var(--clr-white);
+  letter-spacing: -0.02em;
+}
+
+.breakdown-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* Last two smaller cards sit side-by-side spanning the last row */
+.breakdown-card-sm {
+  grid-column: span 1;
+}
+
+/* When there are 5 cards in a 3-col grid, make the last two fill the row */
+.breakdown-grid .breakdown-card:nth-child(4),
+.breakdown-grid .breakdown-card:nth-child(5) {
+  grid-column: span 1;
+}
+
+/* Re-flow last two into a centred pair */
+.breakdown-grid {
+  grid-template-areas:
+    "a b c"
+    "d d e";
+}
+.breakdown-grid .breakdown-card:nth-child(1) { grid-area: a; }
+.breakdown-grid .breakdown-card:nth-child(2) { grid-area: b; }
+.breakdown-grid .breakdown-card:nth-child(3) { grid-area: c; }
+.breakdown-grid .breakdown-card:nth-child(4) { grid-area: d; }
+.breakdown-grid .breakdown-card:nth-child(5) { grid-area: e; }
+
+.breakdown-card {
+  background: var(--clr-bg-card);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+  padding: 32px 28px;
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+
+.breakdown-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(59,130,246,0.15);
+  border-color: rgba(59,130,246,0.2);
+}
+
+.breakdown-card-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--clr-border);
+}
+
+.breakdown-icon {
+  flex-shrink: 0;
+  width: 38px;
+  height: 38px;
+  color: var(--clr-accent);
+}
+
+.breakdown-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.breakdown-card-header h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--clr-white);
+  line-height: 1.3;
+}
+
+.breakdown-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  list-style: none;
+}
+
+.breakdown-list li {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-size: 0.88rem;
+  color: var(--clr-text-muted);
+  line-height: 1.5;
+}
+
+.breakdown-list li::before {
+  content: '';
+  flex-shrink: 0;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--clr-accent);
+  margin-top: 2px;
+  opacity: 0.7;
+}
+
+.breakdown-note {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--clr-border);
+  font-size: 0.82rem;
+  color: var(--clr-accent);
+  font-weight: 600;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.free-badge {
+  flex-shrink: 0;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #4ade80;
+  background: rgba(74,222,128,0.1);
+  border: 1px solid rgba(74,222,128,0.25);
+  padding: 2px 8px;
+  border-radius: 50px;
+}
+
+@media (max-width: 1024px) {
+  .breakdown-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      "a b"
+      "c c"
+      "d e";
+  }
+}
+
+@media (max-width: 768px) {
+  .breakdown-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas: none;
+  }
+  .breakdown-grid .breakdown-card:nth-child(n) {
+    grid-area: unset;
+  }
+}
+
 /* --- CTA Banner ------------------------------------------- */
 .cta-banner {
   position: relative;
